@@ -5,22 +5,57 @@
     <title>Title</title>
 </head>
 <body>
-    <div>
-        <h1>
-            TodoList
-        </h1>
+    <main>
+        <div>
+            <header>
+                <h1>TodoList</h1>
+            </header>
 
-        <button>Add Todo</button>
-        <label>
-            <input type="text" size="40">
-        </label> <Br>
+                <div class="add-task">
+                    <button aria-label="Button to add todo">Add Todo</button>
 
-        <label>
-            <input type="radio" name="Todolist" value="firstTodo">
-        </label> first todo<Br>
-        <label>
-            <input type="radio" name="Todolist" value="secondTodo">
-        </label> second todo<Br>
-    </div>
+                    <label>
+                        <input type="text" size="40" placeholder="What needs to be done?" aria-label="Enter todo here">
+                    </label> <Br>
+                </div>
+
+            <div class="tasks" aria-label="Tasks">
+                <ul>
+                    <li class="task">
+                        <label>
+                            <input type="checkbox" class="checkbox-task" value="first-todo" aria-label="Task checkbox">
+                        </label> first todo<Br>
+                        <button class="task-delete-button" aria-label="Button to delete task" hidden>
+
+                        </button>
+                    </li>
+
+                    <li class="task">
+                        <label>
+                            <input type="checkbox" class="checkbox-task" value="second-todo" aria-label="Task checkbox">
+                        </label> second todo<Br>
+                        <button class="task-delete-button" aria-label="Button to delete task" hidden>
+
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
 </body>
+
+<footer>
+    <label class="info-items">2 items left</label>
+    <div role="navigation" class="navigation-at-items" aria-label="Navigation at items">
+        <label>
+            <input type="radio" class="items" value="all" aria-label="Choose all">
+        </label> All
+        <label>
+            <input type="radio" class="items" value="active" aria-label="Choose active">
+        </label> Active
+        <label>
+            <input type="radio" class="items" value="completed" aria-label="Choose completed">
+        </label> Completed
+    </div>
+</footer>
 </html>
