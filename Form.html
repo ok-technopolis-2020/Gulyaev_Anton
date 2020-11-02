@@ -3,35 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <h1>TodoList</h1>
-    </header>
+<header>
+    <h1>TodoList</h1>
+</header>
+
+<div class="box">
+
 
     <main>
         <div class="add-task">
-            <button class="add-task-button" aria-label="Button to add todo">Add Todo</button>
-            <label>
-                <input type="text" size="40" placeholder="What needs to be done?" aria-label="Enter todo here">
-            </label>
+            <header class="input-area">
+                <button class="choose-button" aria-label="Choose all"></button>
+                <input class="input-area-field" type="text" size="40" placeholder="What needs to be done?"
+                       aria-label="Enter todo here">
+            </header>
         </div>
 
-        <div class="tasks" aria-label="Tasks">
-            <ul>
+        <div aria-label="Tasks">
+            <ul class="tasks">
                 <li class="task">
-                    <label>
-                        <input type="checkbox" class="checkbox-task" value="first-todo" aria-label="Task checkbox">
-                    </label> first todo
-                    <button class="task-delete-button" aria-label="Button to delete task" hidden></button>
+                    <input type="checkbox" class="checkbox-task" value="first-todo" aria-label="Task checkbox">
+                    <input type="text" class="task-text" value="first todo"/>
+                    <span class="task-text">first todo</span>
+                    <button class="task-delete-button" aria-label="Button to delete task" ></button>
                 </li>
 
                 <li class="task">
-                    <label>
-                        <input type="checkbox" class="checkbox-task" value="second-todo" aria-label="Task checkbox">
-                    </label> second todo
-                    <button class="task-delete-button" aria-label="Button to delete task" hidden></button>
+
+                    <input type="checkbox" class="checkbox-task" value="second-todo" aria-label="Task checkbox">
+                    <input type="text" class="task-text" value="second todo"/>
+                    <span class="task-text">second todo</span>
+
+                    <button class="task-delete-button" aria-label="Button to delete task" ></button>
                 </li>
             </ul>
         </div>
@@ -40,20 +47,21 @@
 
     <footer>
         <span class="info-items">2 items left</span>
-        <div  class="navigation-at-items" role="navigation" aria-label="Navigation at items">
-            <label>
-                <input type="radio" class="items" value="all" aria-label="Choose all">
-            </label> All
-            <label>
-                <input type="radio" class="items" value="active" aria-label="Choose active">
-            </label> Active
-            <label>
-                <input type="radio" class="items" value="completed" aria-label="Choose completed">
-            </label> Completed
+        <div class="navigation-at-items" role="navigation" aria-label="Navigation at items">
+
+            <input type="radio" class="task-filter" value="all" aria-label="Choose all" id="all">
+            <label for="all">All </label>
+
+            <input type="radio" class="task-filter" value="active" aria-label="Choose active" id="active">
+            <label for="active">Active </label>
+
+            <input type="radio" class="task-filter" value="completed" aria-label="Choose completed" id="completed">
+            <label for="completed">Completed </label>
         </div>
         <div class="delete-tasks">
             <button class="delete-tasks-button" aria-label="Delete all tasks">Clear completed</button>
         </div>
     </footer>
+</div>
 </body>
 </html>
