@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap");
+
 html, body {
     margin: 0;
     padding: 0;
@@ -15,42 +17,46 @@ body {
 }
 
 h1 {
-    margin: 0 0 2rem;
+    margin: 0;
     text-align: center;
     font-size: 100px;
     font-weight: lighter;
-    position: center;
-    font-family: "Roboto", sans-serif;
-    line-height: 1px;
     color: #CCCCCC;
 }
 
 .box {
     position: relative;
-    margin-bottom: auto;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+    margin-bottom: 2rem;
+
 }
 
 .box::before {
+
     display: block;
+    background-color: #ffffff;
     content: "";
     top: 5px;
-    width: 100%;
+    width: 99%;
     height: 100%;
     z-index: -1;
     position: absolute;
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+    left: 0.5%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
 }
 
 .box::after {
     display: block;
+    background-color: #ffffff;
     content: "";
     top: 10px;
-    width: 100%;
+    left: 1%;
+    width: 98%;
     height: 100%;
-    z-index: -1;
+    z-index: -2;
     position: absolute;
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .input-area {
@@ -62,7 +68,7 @@ h1 {
 }
 
 .choose-button {
-    background: no-repeat center white url(icons/select-all.png);
+    background: no-repeat center white url(icons/select-all.svg);
     display: flex;
     cursor: pointer;
     position: relative;
@@ -81,7 +87,8 @@ h1 {
     font-family: "Roboto", sans-serif;
     border: none;
     color: #666666;
-    padding-left: 1rem;
+    padding: 0 0 0 1rem;
+    margin-left: 1px;
     font-size: 24px;
 }
 
@@ -91,18 +98,20 @@ h1 {
 
 .tasks {
     background-color: #ffffff;
+    list-style: none;
     min-height: 320px;
     padding: 0;
     margin: 0;
 }
 
-.checkbox-task {
+.tasks__checkbox-task {
     outline-color: #818181;
-    position: relative;
-    top: 13%;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }
 
-.checkbox-task::before {
+.tasks__checkbox-task::before {
     position: absolute;
     display: block;
     text-align: center;
@@ -118,40 +127,38 @@ h1 {
     transform: translate(-50%, -50%);
 }
 
-.checkbox-task:focus::before {
+.tasks__checkbox-task:focus::before {
     outline: 2px solid #818181;
 }
 
-.checkbox-task:hover::before {
+.tasks__checkbox-task:hover::before {
     border: 1px solid #46cd9f;
 }
 
-.checkbox-task:checked::before {
-    background: no-repeat center white url(icons/completed.png);
+.tasks__checkbox-task:checked::before {
+    background: no-repeat center white url(icons/completed.svg);
     border: 1px solid #46cd9f;
     color: #46cd9f;
 }
 
-.checkbox-task:checked ~ .task-text{
+.tasks__checkbox-task:checked ~ .tasks__task-text{
     text-decoration: line-through;
     color: #CCCCCC;
 }
 
-.task-text {
-    border: none;
+.tasks__task-text {
     cursor: text;
-    width: 100%;
     display: flex;
+    flex-grow: 1;
+    word-break: break-word;
     font-size: 24px;
-    table-layout: fixed;
-    word-wrap: break-word;
     font-family: "Roboto", sans-serif;
     background-color: transparent;
     outline-color: #818181;
     color: #666666;
 }
 
-input.task-text {
+input.tasks__task-text {
     position: absolute;
     clip: rect(0 0 0 0);
     width: 1px;
@@ -159,7 +166,7 @@ input.task-text {
     margin: -1px;
 }
 
-.task {
+.tasks__task {
     display: grid;
     grid-template-columns: 40px auto 20px;
     align-items: center;
@@ -169,30 +176,36 @@ input.task-text {
     min-height: 64px;
 }
 
-.task:hover {
+.tasks__task:hover {
     cursor: pointer;
     background-color: #fafafa;
 }
 
-.task-delete-button {
+.tasks__task-delete-button {
     outline-color: #818181;
-    width: 20px;
-    height: 20px;
-    border: 1px;
+    width: 25px;
+    height: 25px;
+    border: none;
+    background-color: transparent;
 }
 
-.task-delete-button {
-    background: no-repeat center url(icons/close.png);
+.tasks__task-delete-button:focus {
+    background: no-repeat center url(icons/close.svg);
 }
 
-.task-delete-button:hover {
-    transform: scale(1.5);
+.tasks__task:hover > .tasks__task-delete-button {
+    background: no-repeat center url(icons/close.svg);
+}
+
+.tasks__task-delete-button:hover {
+    transform: scale(1.2);
     cursor: pointer;
     transition: 100ms;
 }
 
-footer {
+.control-panel {
     background-color: #ffffff;
+    border-top: 1px solid #cccccc;
     display: grid;
     justify-content: space-between;
     grid-template-columns: 92px auto 124px;
@@ -200,7 +213,7 @@ footer {
     padding: 12px 12px;
 }
 
-.delete-tasks-button {
+.control-panel__delete-tasks-button {
     color: #888888;
     border: none;
     font-size: 14px;
@@ -211,24 +224,24 @@ footer {
     padding: 3px;
 }
 
-.delete-tasks-button:hover {
+.control-panel__delete-tasks-button:hover {
     background-color: #fafafa;
 }
 
-.delete-tasks-button:focus {
+.control-panel__delete-tasks-button:focus {
     background-color: #fafafa;
 }
 
-.navigation-at-items {
+.control-panel__navigation-at-items {
     display: flex;
 }
 
-.info-items {
+.control-panel__info-items {
     font-size: 14px;
     color: #888888;
 }
 
-.task-filter ~ label {
+.control-panel__task-filter ~ label {
     color: #888888;
     border-radius: 5px;
     padding: 3px 9px;
@@ -236,18 +249,20 @@ footer {
     border: 1px solid transparent;
 }
 
-.task-filter:not(:checked) ~ label:hover {
+.control-panel__task-filter:not(:checked) ~ label:hover {
     background-color: #fafafa;
 }
 
-.task-filter {
+.control-panel__task-filter {
     appearance: none;
 }
 
-.task-filter:checked ~ label {
+.control-panel__task-filter:checked ~ label {
     border: 1px solid #CCCCCC;
 }
 
-.task-filter:focus ~ label {
-    border: 1px solid #CCCCCC;
+.control-panel__task-filter:focus ~ label {
+    border: 1px solid #919090;
+
 }
+

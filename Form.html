@@ -14,7 +14,7 @@
 <div class="box">
 
 
-    <main>
+
         <div class="add-task">
             <header class="input-area">
                 <button class="choose-button" aria-label="Choose all"></button>
@@ -22,46 +22,57 @@
                        aria-label="Enter todo here">
             </header>
         </div>
-
+    <main>
         <div aria-label="Tasks">
             <ul class="tasks">
-                <li class="task">
-                    <input type="checkbox" class="checkbox-task" value="first-todo" aria-label="Task checkbox">
-                    <input type="text" class="task-text" value="first todo"/>
-                    <span class="task-text">first todo</span>
-                    <button class="task-delete-button" aria-label="Button to delete task" ></button>
+                <li class="tasks__task">
+                    <input type="checkbox" class="tasks__checkbox-task" value="first-todo" aria-label="Task checkbox">
+                    <input type="text" class="tasks__task-text" value="first todo"/>
+                    <span class="tasks__task-text">first todo</span>
+                    <button class="tasks__task-delete-button" aria-label="Button to delete task"></button>
                 </li>
 
-                <li class="task">
+                <li class="tasks__task">
 
-                    <input type="checkbox" class="checkbox-task" value="second-todo" aria-label="Task checkbox">
-                    <input type="text" class="task-text" value="second todo"/>
-                    <span class="task-text">second todo</span>
-
-                    <button class="task-delete-button" aria-label="Button to delete task" ></button>
+                    <input type="checkbox" class="tasks__checkbox-task" value="second-todo" aria-label="Task checkbox">
+                    <input type="text" class="tasks__task-text" value="second todo"/>
+                    <span class="tasks__task-text">second todo</span>
+                    <button class="tasks__task-delete-button" aria-label="Button to delete task"></button>
                 </li>
             </ul>
         </div>
     </main>
-
-
     <footer>
-        <span class="info-items">2 items left</span>
-        <div class="navigation-at-items" role="navigation" aria-label="Navigation at items">
+        <div class="control-panel" role="toolbar">
+            <span class="control-panel__info-items" role="note">2 items left</span>
+            <div class="control-panel__navigation-at-items" role="group" aria-label="Navigation at items">
+                <div>
+                    <input type="radio" class="control-panel__task-filter" aria-label="all tasks"
+                            value="All" name="filter" id="all"/>
+                    <label for="all">All</label>
+                </div>
 
-            <input type="radio" class="task-filter" value="all" aria-label="Choose all" id="all">
-            <label for="all">All </label>
+                <div>
+                    <input type="radio" class="control-panel__task-filter" aria-label="active tasks"
+                            value="Active" name="filter" id="active"/>
+                    <label for="active">Active</label>
+                </div>
 
-            <input type="radio" class="task-filter" value="active" aria-label="Choose active" id="active">
-            <label for="active">Active </label>
+                <div>
+                    <input type="radio" class="control-panel__task-filter" value="Completed"
+                            aria-label="completed tasks" name="filter" id="completed"/>
+                    <label for="completed">Completed</label>
+                </div>
+            </div>
 
-            <input type="radio" class="task-filter" value="completed" aria-label="Choose completed" id="completed">
-            <label for="completed">Completed </label>
-        </div>
-        <div class="delete-tasks">
-            <button class="delete-tasks-button" aria-label="Delete all tasks">Clear completed</button>
+            <div class="control-panel__delete-tasks">
+                <button class="control-panel__delete-tasks-button" aria-label="Delete all tasks">Clear completed
+                </button>
+            </div>
         </div>
     </footer>
 </div>
 </body>
 </html>
+
+
